@@ -317,8 +317,8 @@ class ChatClient extends EventEmitter {
         console.warn(logMessage);
         break;
       case 'debug':
-        // Only log debug in development
-        if (process.env.NODE_ENV !== 'production') {
+        // Only log debug in non-production environments
+        if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
           console.log(logMessage);
         }
         break;
